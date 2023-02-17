@@ -5,20 +5,22 @@ jobs:
   deploy-code:
     runs-on: ubuntu-latest
     steps:
+    
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
             php-version: '8.1'
             extensions: none
+            
       - name: Check syntax
         uses: overtrue/phplint@main
-        with:
-          path: src/
+
       - name: creates ssh key
         run: |
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
           echo "${{ secrets.HELLOWORLD_SSH_KEY }}" > ~/.ssh/helloworldkey
           chmod 600 ~/.ssh/helloworldkey
+          
       - name: run remote update script
         run: ssh -o StrictHostKeyChecking=accept-new -i ~/.ssh/helloworldkey deploy@44.230.193.216 /usr/local/bin/updatecode.sh
