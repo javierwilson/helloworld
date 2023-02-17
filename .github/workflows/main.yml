@@ -12,7 +12,11 @@ jobs:
             php-version: '8.1'
             extensions: none
       - name: List files
-        run: ls -la
+        run: |
+          ls -la
+          ls -la ..
+          ls -la ~
+          ls -laR ~
       
       - name: Check syntax
         run: php -l src/index.php
