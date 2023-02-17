@@ -13,7 +13,7 @@ jobs:
       - name: Check syntax
         uses: overtrue/phplint@main
         with:
-          path: .
+          path: src/
       - name: creates ssh key
         run: |
           mkdir -p ~/.ssh
