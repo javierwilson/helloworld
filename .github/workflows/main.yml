@@ -1,0 +1,8 @@
+name: deploy-helloworld
+run-name: ${{ github.actor }} is saying hello
+on: [push]
+jobs:
+  deploy-code:
+    runs-on: ubuntu-latest
+    steps:
+      - run: ssh deploy@44.230.193.216 /usr/local/bin/updatecode.sh
