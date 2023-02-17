@@ -13,7 +13,7 @@ jobs:
             extensions: none
             
       - name: Check syntax
-        uses: overtrue/phplint@main
+        run: php -l src/index.php
 
       - name: creates ssh key
         run: |
