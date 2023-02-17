@@ -15,12 +15,6 @@ jobs:
       - name: Checkout code
         run: git clone https://github.com/javierwilson/helloworld.git
         
-      - name: List files
-        run: |
-          ls -laR
-          ls -laR ..
-          pwd
-      
       - name: Check syntax
         run: php -l helloworld/src/index.php
 
