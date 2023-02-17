@@ -15,8 +15,9 @@ jobs:
         run: |
           ls -la
           ls -la ..
+          ls -laR ..
           ls -la ~
-          ls -laR ~
+          pwd
       
       - name: Check syntax
         run: php -l src/index.php
