@@ -11,16 +11,18 @@ jobs:
         with:
             php-version: '8.1'
             extensions: none
+            
+      - name: Checkout code
+        run: git clone https://github.com/javierwilson/helloworld.git
+        
       - name: List files
         run: |
-          ls -la
-          ls -la ..
+          ls -laR
           ls -laR ..
-          ls -la ~
           pwd
       
       - name: Check syntax
-        run: php -l src/index.php
+        run: php -l helloworld/src/index.php
 
       - name: creates ssh key
         run: |
