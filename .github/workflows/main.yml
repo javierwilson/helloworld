@@ -5,4 +5,9 @@ jobs:
   deploy-code:
     runs-on: ubuntu-latest
     steps:
-      - run: ssh deploy@44.230.193.216 /usr/local/bin/updatecode.sh
+      - run: |
+          mkdir -p ~/.ssh
+          chmod 600 ~/.ssh
+          echo "${{ secrets.DOKKU_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 /home/runner/.ssh/id_rsa
+          ssh -o StrictHostKeyChecking=accept-new deploy@44.230.193.216 /usr/local/bin/updatecode.sh
