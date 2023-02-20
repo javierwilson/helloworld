@@ -26,4 +26,4 @@ jobs:
           chmod 600 ~/.ssh/helloworldkey
           
       - name: run remote update script
-        run: ssh -o StrictHostKeyChecking=accept-new -i ~/.ssh/helloworldkey deploy@44.230.193.216 /usr/local/bin/updatecode.sh
+        run: ssh -o StrictHostKeyChecking=accept-new -i ~/.ssh/helloworldkey ${{ vars.SSH_DEPLOY_USER }}@${{ vars.SSH_DEPLOY_HOST }} /usr/local/bin/updatecode.sh
